@@ -1,8 +1,11 @@
 import * as React from 'react'
 import './FilterMatchesDashboard.css'
+import { Card, Button, CardImg, CardTitle, CardText, CardColumns, CardSubtitle, CardBody } from 'reactstrap'
+import MatchCard from "./MatchCard";
+import UserMatched from "../data/UserMatched";
 
 interface FilterMatchesDashboardProps {
-
+    usersMatched: Array<UserMatched>;
 }
 
 interface FilterMatchesDashboardState {
@@ -15,9 +18,30 @@ class FilterMatchesDashboard extends React.Component<FilterMatchesDashboardProps
     }
 
     render() {
+        let cards = [];
+
+        for (let userMatched of this.props.usersMatched) {
+            cards.push(<MatchCard mainPhoto={userMatched.mainPhoto}
+                                  age={userMatched.age}
+                                  cityName={userMatched.cityName}
+                                  compatibilityScore={userMatched.compatibilityScore}
+                                  contactsExchanged={userMatched.contactsExchanged}
+                                  favourite={userMatched.favourite}
+                                  job_title={userMatched.jobTitle}
+                                  display_name={userMatched.displayName}
+                                  height_in_cm={userMatched.heightInCm}/>);
+        }
+
         return (
             <div id={"dashboardContainer"}>
-                <h1>SHOW</h1>
+                <div className={"filters"}>
+                    &nbsp;
+                </div>
+                <div className={"matches"}>
+                    <CardColumns>
+                        {cards}
+                    </CardColumns>
+                </div>
             </div>
         )
     }

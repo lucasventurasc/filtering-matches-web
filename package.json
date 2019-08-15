@@ -16,8 +16,9 @@
     "immutability-helper": "^2.8.1",
     "immutable": "^4.0.0-rc.12",
     "jquery": "^3.4.1",
-    "react": "^16.6.3",
-    "react-dom": "^16.6.3"
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "reactstrap": "^8.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
@@ -26,6 +27,7 @@
     "@types/chai": "^4.1.7",
     "@types/mocha": "^5.2.5",
     "@types/node": "^10.9.3",
+    "@types/react": "^16.9.1",
     "babel-loader": "^8.0.4",
     "chai": "latest",
     "copy-webpack-plugin": "^5.0.2",

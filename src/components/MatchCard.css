@@ -1,0 +1,27 @@
+.rating-star{
+    font-size: 3rem;
+    width: 3rem;
+    height: 3rem;
+    padding: 0 2rem;
+    position: relative;
+    display: block;
+    float:left;
+}
+
+.full-star:before {
+    color: #f2b01e;
+    content: "\2605";
+    position: absolute;
+    left: 0;
+    overflow: hidden;
+}
+
+.favourite {
+    float: right;
+}
+
+.mainPhoto {
+    height: 250px;
+    background: transparent no-repeat center;
+    background-size: cover;
+}
