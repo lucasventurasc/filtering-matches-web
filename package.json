@@ -1,0 +1,61 @@
+{
+  "name": "filtering-matches-web",
+  "version": "0.1.0",
+  "main": "build/index.js",
+  "scripts": {
+    "start": "webpack --mode development && webpack-dev-server --open",
+    "build": "webpack --mode production",
+    "test": "npm i -g mocha && npm i -g ts-node && mocha",
+    "build-dev": "webpack --mode development"
+  },
+  "engines": {
+    "node": "8.11.4"
+  },
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "immutability-helper": "^2.8.1",
+    "immutable": "^4.0.0-rc.12",
+    "jquery": "^3.4.1",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "@types/chai": "^4.1.7",
+    "@types/mocha": "^5.2.5",
+    "@types/node": "^10.9.3",
+    "babel-loader": "^8.0.4",
+    "chai": "latest",
+    "copy-webpack-plugin": "^5.0.2",
+    "css-loader": "^1.0.0",
+    "mocha": "^6.0.2",
+    "mocha-typescript": "^1.1.17",
+    "nyc": "^13.0.1",
+    "source-map-support": "^0.5.11",
+    "style-loader": "^0.23.0",
+    "ts-loader": "^5.3.3",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.3.3333",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.2.1"
+  },
+  "nyc": {
+    "extension": [
+      ".ts"
+    ],
+    "include": [
+      "src/**/*.js"
+    ],
+    "exclude": [
+      "**/*.d.ts"
+    ],
+    "reporter": [
+      "text",
+      "html"
+    ],
+    "all": true
+  }
+}
