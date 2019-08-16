@@ -1,6 +1,6 @@
 import * as React from 'react'
 import './FilterMatchesDashboard.css'
-import { Card, Button, CardImg, CardTitle, CardText, CardColumns, CardSubtitle, CardBody } from 'reactstrap'
+import {Card, Button, CardImg, CardTitle, CardText, CardDeck, CardSubtitle, CardBody} from 'reactstrap'
 import MatchCard from "./MatchCard";
 import UserMatched from "../data/UserMatched";
 
@@ -38,9 +38,9 @@ class FilterMatchesDashboard extends React.Component<FilterMatchesDashboardProps
                     &nbsp;
                 </div>
                 <div className={"matches"}>
-                    <CardColumns>
+                    <CardDeck>
                         {cards}
-                    </CardColumns>
+                    </CardDeck>
                 </div>
             </div>
         )

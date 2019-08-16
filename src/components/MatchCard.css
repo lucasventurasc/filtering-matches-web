@@ -1,11 +1,30 @@
-.rating-star{
-    font-size: 3rem;
-    width: 3rem;
-    height: 3rem;
-    padding: 0 2rem;
+.matchCard {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    margin: 13px;
+    min-width: 360px;
+    max-width: 360px;
+    width: 360px;
+}
+
+.rating-star {
+    font-size: 19px;
+    width: 15px;
+    height: 15px;
+    top: -3px;
+    left: 3px;
     position: relative;
     display: block;
-    float:left;
+}
+
+.card-body {
+    padding: 15px 0px 15px 0px;
+}
+
+.card-deck .card {
+    border: none !important;
+    margin-right: 0px !important;
+    margin-bottom: 0px !important;
+    margin-left: 0px !important;
 }
 
 .full-star:before {
@@ -17,11 +36,38 @@
 }
 
 .favourite {
-    float: right;
 }
 
 .mainPhoto {
     height: 250px;
     background: transparent no-repeat center;
     background-size: cover;
+}
+
+.cardTitle {
+    display: flex;
+    flex-direction: row;
+    font-family: roboto, sans-serif;
+    font-weight: 600;
+    color: #444
+}
+
+.card-text {
+    font-family: roboto, sans-serif;
+    font-size: 11px;
+    color: #555;
+}
+
+.card-subtitle {
+    margin-top: -0.95rem !important;
+    margin-bottom: 0;
+    font-family: roboto, sans-serif;
+    font-size: 11px;
+    color: #555;
+}
+
+img {
+    width: 100% !important;
+    min-width: 100% !important;
+    height: auto
 }
