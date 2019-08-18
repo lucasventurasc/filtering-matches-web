@@ -10,7 +10,6 @@ class UserMatched {
     private _displayName: string;
     private _heightInCm: number;
 
-
     get mainPhoto(): string {
         return this._mainPhoto;
     }
