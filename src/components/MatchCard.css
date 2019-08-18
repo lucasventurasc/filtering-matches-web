@@ -1,9 +1,15 @@
 .matchCard {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-    margin: 13px;
-    min-width: 360px;
-    max-width: 360px;
-    width: 360px;
+    min-width: 280px;
+    max-width: 280px;
+    width: 280px;
+    margin: auto auto 30px;
+}
+
+.mainPhoto {
+    height: 200px;
+    background: transparent no-repeat center;
+    background-size: cover;
 }
 
 .rating-star {
@@ -38,18 +44,12 @@
 .favourite {
 }
 
-.mainPhoto {
-    height: 250px;
-    background: transparent no-repeat center;
-    background-size: cover;
-}
-
 .cardTitle {
     display: flex;
     flex-direction: row;
     font-family: roboto, sans-serif;
     font-weight: 600;
-    color: #444
+    color: #444;
 }
 
 .card-text {
@@ -59,7 +59,7 @@
 }
 
 .card-subtitle {
-    margin-top: -0.95rem !important;
+    margin-top: -0.75rem !important;
     margin-bottom: 0;
     font-family: roboto, sans-serif;
     font-size: 11px;

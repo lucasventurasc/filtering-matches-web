@@ -38,9 +38,11 @@ class FilterMatchesDashboard extends React.Component<FilterMatchesDashboardProps
                     &nbsp;
                 </div>
                 <div className={"matches"}>
-                    <CardDeck>
-                        {cards}
-                    </CardDeck>
+                    <div className={"centeredDeck"}>
+                        <CardDeck>
+                            {cards}
+                        </CardDeck>
+                    </div>
                 </div>
             </div>
         )

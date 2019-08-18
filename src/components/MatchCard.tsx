@@ -38,7 +38,7 @@ class MatchCard extends React.Component<MatchCardProps, MatchCardState> {
         return (
             <div className={"matchCard"}>
                 <Card>
-                    <CardImg className={"mainPhoto"} top width={"200px"} height={"150px"} src={this.props.mainPhoto} alt="Card image cap" />
+                    <CardImg className={"mainPhoto"} top width={"*"} height={"*"} src={this.props.mainPhoto} alt="Card image cap" />
                     <CardBody>
                         <CardTitle>
                             <span className={"cardTitle"}>
