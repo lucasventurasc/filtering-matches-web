@@ -61,8 +61,14 @@
 .mobile.filters {
     width: 100%;
     display:inline-block;
-    height:60vh;
+    height:85vh;
     overflow-y: auto;
+}
+
+@media screen and (max-height: 620px) {
+    .mobile.filters {
+        height:60vh;
+    }
 }
 
 /* !important is needed sometimes */
