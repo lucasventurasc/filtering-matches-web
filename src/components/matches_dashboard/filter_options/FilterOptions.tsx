@@ -279,7 +279,7 @@ class FilterOptions extends React.Component<FilterOptionsProps, FilterOptionsSta
                             onChange={value => this.handleSingleRangeInput('maximumDistance', value, MAXIMUM_DISTANCE_MAX)}/>
                     </span>
                 </div>
-                <div style={{width: "100%", marginBottom: "120px"}}>
+                <div style={{width: "100%", marginBottom: "30px"}}>
                     <button type="button" className="btn btn-secondary filterBtn"
                             onClick={() => this.onFilterClick()}>
                         Apply filters

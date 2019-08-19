@@ -38,10 +38,10 @@
 }
 
 .matches {
-    width: 80%;
+    width: 75%;
     border-left: 1px solid black;
     overflow-y: auto;
-    height: 100vh;
+    height: 90vh;
 }
 
 .filters {
@@ -49,15 +49,19 @@
 }
 
 .browser.filters {
-    min-width: 220px;
-    width:20%;
-    margin-right: 20px;
+    min-width: 340px;
+    width:25%;
+    margin-right: 0px;
+    padding-right: 40px;
+    overflow-y: auto;
+    height: 90vh;
+    display: inline;
 }
 
 .mobile.filters {
     width: 100%;
     display:inline-block;
-    height:85vh;
+    height:60vh;
     overflow-y: auto;
 }
 

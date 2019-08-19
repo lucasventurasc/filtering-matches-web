@@ -1,0 +1,13 @@
+.browserHeader {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    color:white;
+    background-color: #fc4e67;
+    font-family: Arial, serif;
+    height: 50px;
+    min-width: 320px !important;
+    padding:20px;
+}

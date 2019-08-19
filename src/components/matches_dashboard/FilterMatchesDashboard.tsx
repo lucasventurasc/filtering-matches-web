@@ -11,6 +11,7 @@ import MobileHeader from "./mobile_header/MobileHeader";
 
 interface FilterMatchesDashboardProps {
     serverUrl: string
+    loggedUser: string
 }
 
 interface FilterMatchesDashboardState {
@@ -38,7 +39,7 @@ class FilterMatchesDashboard extends React.Component<FilterMatchesDashboardProps
     }
 
     private filterMatches(filters: SelectedFilters) {
-        this.matchesFetcher.fetchMatches("Caroline", filters)
+        this.matchesFetcher.fetchMatches(this.props.loggedUser, filters)
             .then((result) => {
                 this.applyFakePhotosForMoreReality(result);
                 this.setState(prevState => ({

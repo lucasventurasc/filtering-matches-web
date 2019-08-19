@@ -3,6 +3,8 @@ import './Application.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import FilterMatchesDashboard from "./matches_dashboard/FilterMatchesDashboard";
 import UserMatched from "../data/UserMatched";
+import {BrowserView, MobileView } from "react-device-detect";
+import BrowserHeader from "./browser_header/BrowserHeader";
 
 interface ApplicationProps {
 
@@ -21,9 +23,13 @@ class Application extends React.Component<ApplicationProps, ApplicationState> {
     }
 
     render() {
+        let loggedUser = "Caroline";
         return (
             <div id={"application"}>
-                <FilterMatchesDashboard serverUrl={this.props.serverUrl}/>
+                <BrowserView>
+                    <BrowserHeader loggedUser={loggedUser}/>
+                </BrowserView>
+                <FilterMatchesDashboard serverUrl={this.props.serverUrl} loggedUser={loggedUser}/>
             </div>
         )
     }
