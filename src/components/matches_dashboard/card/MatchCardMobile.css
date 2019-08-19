@@ -1,0 +1,42 @@
+.card-subtitle {
+    font-size:3.3vw !important
+}
+
+.matchCard {
+    min-width: 95% !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    box-shadow:none;
+    margin: auto auto 70px !important;
+}
+
+.cardTitle {
+    font-size: 5vw !important;
+}
+
+.contactsExchangedIcon {
+    width: 3.5vw  !important;
+    height: 3.5vw !important
+}
+
+.compatibilityScoreIcon {
+    width: 3.5vw !important;
+    height: 3.5vw !important;
+}
+
+.mainPhoto {
+    height: 60vw !important;
+}
+
+.card-body {
+    padding: 30px !important;
+}
+
+.rating-star {
+    font-size: 2.8vh;
+    top: -10px !important;
+}
+
+.cardIcons > span {
+    margin-right: 20px !important;
+}

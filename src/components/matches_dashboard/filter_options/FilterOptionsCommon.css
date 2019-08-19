@@ -1,0 +1,73 @@
+table {
+    width:100%
+}
+table td {
+    vertical-align: middle;
+}
+
+table tbody td:nth-child(1) {
+    text-align: left;
+}
+
+table tbody td:nth-child(2) {
+    text-align: right;
+}
+
+.input-range__label-container {
+    display:none;
+}
+
+.input-range__track {
+    background-color:#999999 !important;
+}
+
+.input-range__slider {
+    background: white !important;
+    border: 1px solid #fc4e67 !important;
+    height: 1.3rem;
+    width: 1.3rem;
+}
+
+.input-range__track--active {
+    background: #fc4e67 !important;
+}
+
+.input-range {
+    width: 90% !important;
+    margin-left: 15px;
+}
+
+.input-range__label {
+    color: #252525 !important;
+}
+
+.filterLabel {
+    font-weight:bold;
+    color:#222;
+}
+
+.input-range__slider {
+    transition: transform 0.1s ease-out, box-shadow 0.1s ease-out !important;
+}
+
+.input-range__slider:active {
+    transform: scale(1.2) !important;
+}
+
+.input-range__slider-container {
+transition: left 0.1s ease-out !important;
+}
+
+.input-range__track {
+    transition: left 0.1s ease-out, width 0.1s ease-out !important;
+}
+
+.slider {
+    width:100%;
+}
+
+.rangeDetail {
+    color: #555555;
+    font-weight: normal;
+}
+

@@ -1,0 +1,17 @@
+.filterLabel {
+    font-size: 15px;
+}
+
+.rangeDetail {
+    color: #555555;
+    font-weight: normal;
+}
+
+.filterBtn {
+    width: 100%;
+}
+
+.slider {
+    margin-top: 5px;
+    margin-bottom: 15px;
+}

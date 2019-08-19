@@ -23,6 +23,14 @@
     display: block;
 }
 
+.full-star:before {
+    color: #f2b01e;
+    content: "\2605";
+    position: absolute;
+    left: 0;
+    overflow: hidden;
+}
+
 .card-body {
     padding: 15px 10px 15px 10px;
 }
@@ -34,13 +42,6 @@
     margin-left: 0px !important;
 }
 
-.full-star:before {
-    color: #f2b01e;
-    content: "\2605";
-    position: absolute;
-    left: 0;
-    overflow: hidden;
-}
 
 .favourite {
 }
@@ -48,23 +49,23 @@
 .cardTitle {
     display: flex;
     flex-direction: row;
-    font-family: roboto, sans-serif;
-    font-size: 14px;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
     font-weight: 600;
-    color: #444;
+    color: #cf3e52;
 }
 
 .card-text {
-    font-family: roboto, sans-serif;
-    font-size: 12px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
     color: #555;
 }
 
 .card-subtitle {
     margin-top: -0.75rem !important;
     margin-bottom: 0;
-    font-family: roboto, sans-serif;
-    font-size: 11px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
     color: #555;
 }
 

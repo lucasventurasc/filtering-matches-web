@@ -1,0 +1,59 @@
+.filtersContent {
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 60px;
+}
+.filterBtn {
+    width: 100%;
+    height: 85px;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.filterLabel {
+    font-size:40px;
+    color: #393939
+}
+
+.react-toggle-track {
+    width: 140px;
+    height: 80px;
+}
+
+.react-toggle-thumb {
+    width: 79px;
+    height: 79px;
+}
+.react-toggle--checked .react-toggle-thumb {
+    left: 60px;
+    border-color: #fc4e67;
+}
+
+.input-range__slider {
+    height: 70px !important;
+    width: 70px !important;
+    margin-top: -2.45rem !important;
+}
+
+.input-range__track {
+    height: 0.6rem !important;
+}
+
+.slider {
+    margin-top: 45px;
+    margin-bottom: 70px;
+}
+
+.rangeDetail {
+    color: #555555;
+    font-size: 38px;
+    font-weight: normal;
+}
+
+.filterBtn {
+    height: 80px;
+    font-size: 30px;
+}
+.form-group {
+    margin-bottom: 3vh;
+}

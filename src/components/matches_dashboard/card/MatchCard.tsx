@@ -2,6 +2,7 @@ import * as React from 'react'
 import './MatchCard.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Card, Button, CardImg, CardTitle, CardText, CardSubtitle, CardBody } from 'reactstrap'
+import {isMobile} from "react-device-detect";
 
 interface MatchCardProps {
 
@@ -24,6 +25,12 @@ class MatchCard extends React.Component<MatchCardProps, MatchCardState> {
 
     constructor(props) {
         super(props);
+    }
+
+    UNSAFE_componentWillMount() {
+        if (isMobile) {
+            require('./MatchCardMobile.css');
+        }
     }
 
     render() {

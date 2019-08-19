@@ -1,7 +1,7 @@
 import * as React from 'react'
 import './Application.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import FilterMatchesDashboard from "./FilterMatchesDashboard";
+import FilterMatchesDashboard from "./matches_dashboard/FilterMatchesDashboard";
 import UserMatched from "../data/UserMatched";
 
 interface ApplicationProps {

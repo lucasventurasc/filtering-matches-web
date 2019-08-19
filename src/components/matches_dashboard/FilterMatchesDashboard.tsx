@@ -1,11 +1,13 @@
 import * as React from 'react'
 import './FilterMatchesDashboard.css'
 import {Button, Card, CardBody, CardDeck, CardImg, CardSubtitle, CardText, CardTitle} from 'reactstrap'
-import MatchCard from "./MatchCard";
-import UserMatched from "../data/UserMatched";
-import FilterOptions from "./FilterOptions";
-import SelectedFilters from "../data/SelectedFilters";
-import MatchesFetcher from "../data/MatchesFetcher";
+import MatchCard from "./card/MatchCard";
+import UserMatched from "../../data/UserMatched";
+import FilterOptions from "./filter_options/FilterOptions";
+import SelectedFilters from "../../data/SelectedFilters";
+import MatchesFetcher from "../../data/MatchesFetcher";
+import {BrowserView, MobileView } from "react-device-detect";
+import MobileHeader from "./mobile_header/MobileHeader";
 
 interface FilterMatchesDashboardProps {
     serverUrl: string
@@ -14,6 +16,8 @@ interface FilterMatchesDashboardProps {
 interface FilterMatchesDashboardState {
 
     usersMatched: UserMatched[]
+    mobileShowingFilters: boolean,
+    mobileShowingMatches: boolean
 }
 
 
@@ -24,7 +28,9 @@ class FilterMatchesDashboard extends React.Component<FilterMatchesDashboardProps
         super(props);
 
         this.state = {
-            usersMatched: []
+            usersMatched: [],
+            mobileShowingMatches: true,
+            mobileShowingFilters: false
         };
 
         this.matchesFetcher = new MatchesFetcher(this.props.serverUrl);
@@ -34,13 +40,38 @@ class FilterMatchesDashboard extends React.Component<FilterMatchesDashboardProps
     private filterMatches(filters: SelectedFilters) {
         this.matchesFetcher.fetchMatches("Caroline", filters)
             .then((result) => {
-                result.forEach((value, index) => value.mainPhoto = value.mainPhoto ? this.getFakeWomanPhoto()[index] : null);
+                this.applyFakePhotosForMoreReality(result);
                 this.setState(prevState => ({
                     ...prevState,
-                    usersMatched: result
+                    usersMatched: result,
+                    mobileShowingMatches: true,
+                    mobileShowingFilters: false
                 }));
             });
     }
+
+    private applyFakePhotosForMoreReality(result) {
+        result.forEach((value, index) => {
+            value.mainPhoto = value.mainPhoto ? this.getFakeWomanPhoto()[index] : null
+        });
+    }
+
+    private onClickToFilter() {
+        this.setState(prevState => ({
+            ...prevState,
+            mobileShowingFilters: true,
+            mobileShowingMatches: false
+        }));
+    }
+
+    private getMobileTextHeader() {
+        if (this.state.mobileShowingFilters) {
+            return "Filter Matches"
+        } else if (this.state.mobileShowingMatches) {
+            return "Matches"
+        }
+    }
+
 
     render() {
         let cards = [];
@@ -58,24 +89,63 @@ class FilterMatchesDashboard extends React.Component<FilterMatchesDashboardProps
         }
 
         return (
+            <div>
+                {this.renderBrowserView(cards)}
+                {this.renderMobileView(cards)}
+            </div>
+        )
+    }
+
+    private renderBrowserView(cards) {
+        return <BrowserView>
             <div id={"dashboardContainer"}>
-                <div className={"filters"} >
-                    <div style={{width:"100%", color:"#6E6E6E", borderBottom:"1px solid #ccc", marginBottom: "30px"}}>
+                <div className={"browser filters"}>
+                    <div
+                        style={{
+                            width: "100%",
+                            color: "#6E6E6E",
+                            borderBottom: "1px solid #ccc",
+                            marginBottom: "30px"
+                        }}>
                         <h5>Filtering options</h5>
                     </div>
                     <div style={{marginLeft: "30px"}}>
-                        <FilterOptions onFilterClick={(filters) => this.filterMatches(filters)}/>
+                        <FilterOptions onClickApplyFilter={(filters) => this.filterMatches(filters)}/>
                     </div>
                 </div>
                 <div className={"matches"}>
-                    <div className={"centeredDeck"}>
-                        <CardDeck>
-                            {cards}
-                        </CardDeck>
-                    </div>
+                    {this.renderMatchesCardsComponent(cards)}
                 </div>
             </div>
-        )
+        </BrowserView>;
+    }
+
+    private renderMatchesCardsComponent(cards) {
+        if (cards.length > 0) {
+            return <div className={"centeredDeck"}>
+                <CardDeck>
+                    {cards}
+                </CardDeck>
+            </div>;
+        } else {
+            return <div style={{textAlign: "center", width: "100%"}}>
+                <span style={{fontSize: "50px", color:"#555", fontWeight:"bold"}}>No matches for that filters</span>
+            </div>
+        }
+    }
+
+    private renderMobileView(cards) {
+        return <MobileView>
+            <MobileHeader isFiltering={this.state.mobileShowingFilters}
+                          text={this.getMobileTextHeader()}
+                          onClickToFilter={() => this.onClickToFilter()}/>
+            <div className={"mobile matches"} style={{display: this.state.mobileShowingMatches ? 'flex' : 'none', marginTop: "30px", width:"100%"}}>
+                {this.renderMatchesCardsComponent(cards)}
+            </div>
+            <div className={"mobile filters"} style={{padding: "0px", visibility: this.state.mobileShowingFilters ? 'visible' : 'hidden', marginTop: "30px"}}>
+                <FilterOptions onClickApplyFilter={(filters) => this.filterMatches(filters)}/>
+            </div>
+        </MobileView>;
     }
 
     getFakeWomanPhoto() {

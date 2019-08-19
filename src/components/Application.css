@@ -4,6 +4,16 @@ html, body {
 
 #application {
     height: 100%;
-    font-family: roboto, Arial;
+    font-family: Arial, Arial;
     overflow-y: hidden;
+}
+
+.btn-secondary {
+    background-color: #fc4e67 !important;
+    border-color: #fc4e67 !important;
+}
+
+.btn-secondary:active {
+    background-color: #fc4e67 !important;
+    border-color: #aa4e67 !important;
 }
