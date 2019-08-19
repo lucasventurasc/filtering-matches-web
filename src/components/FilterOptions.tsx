@@ -2,14 +2,17 @@ import * as React from 'react'
 import './FilterOptions.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min';
+import SelectedFilters from "../data/SelectedFilters";
 
 interface FilterOptionsProps {
+
+    onFilterClick: (FilterOptionsState) => void;
 }
 
-interface FilterOptionsState {
+interface FilterOptionsState extends SelectedFilters {
     hasPhoto: boolean,
     inContact: boolean,
-    favourite: boolean
+    favorited: boolean
 }
 
 
@@ -21,7 +24,7 @@ class FilterOptions extends React.Component<FilterOptionsProps, FilterOptionsSta
         this.state = {
             hasPhoto: false,
             inContact: false,
-            favourite: false
+            favorited: false
         }
     }
 
@@ -40,37 +43,48 @@ class FilterOptions extends React.Component<FilterOptionsProps, FilterOptionsSta
         return (
             <div>
                 <div className="form-group row">
-                    <input id={"chkHasPhoto"}
-                           type="checkbox"
-                           className={"checkbox-filter"}
-                           name={"hasPhoto"}
-                           checked={this.state.hasPhoto}
-                           onChange={(event) => this.handleCheckboxChange(event)}/>
-                    <label className={"checkboxtext"} htmlFor={"chkHasPhoto"} style={{fontSize: "2em"}}>
-                        Big
-                    </label>
+                    <div className="checkbox">
+                        <label>
+                            <input id={"chkHasPhoto"}
+                                   type="checkbox"
+                                   className={"checkbox-filter"}
+                                   name={"hasPhoto"}
+                                   checked={this.state.hasPhoto}
+                                   onChange={(event) => this.handleCheckboxChange(event)}/>
+                            <span className="cr"><i className="cr-icon fa fa-check"/></span>
+                            Has photo
+                        </label>
+                    </div>
                 </div>
                 <div className="form-group row">
-                    <input id={"chkInContact"}
-                           type="checkbox"
-                           className={"checkbox-filter"}
-                           name={"inContact"}
-                           checked={this.state.inContact}
-                           onChange={(event) => this.handleCheckboxChange(event)}/>
-                    <label className={"checkboxtext"} htmlFor={"chkInContact"} style={{fontSize: "2em"}}>
-                        Big
-                    </label>
+                    <div className="checkbox">
+                        <label>
+                            <input type="checkbox"
+                                   className={"checkbox-filter"}
+                                   name={"inContact"}
+                                   checked={this.state.inContact}
+                                   onChange={(event) => this.handleCheckboxChange(event)}/>
+                            <span className="cr"><i className="cr-icon fa fa-check"/></span>
+                            In contact
+                        </label>
+                    </div>
                 </div>
                 <div className="form-group row">
-                    <input id={"chkFavourite"}
-                           type="checkbox"
-                           className={"checkbox-filter"}
-                           name={"favourite"}
-                           checked={this.state.favourite}
-                           onChange={(event) => this.handleCheckboxChange(event)}/>
-                    <label className={"checkboxtext"} htmlFor={"chkFavourite"} style={{fontSize: "2em"}}>
-                        Big
-                    </label>
+                    <div className="checkbox">
+                        <label>
+                            <input type="checkbox"
+                                   className={"checkbox-filter"}
+                                   name={"favorited"}
+                                   checked={this.state.favorited}
+                                   onChange={(event) => this.handleCheckboxChange(event)}/>
+                            <span className="cr"><i className="cr-icon fa fa-check"/></span>
+                            Favourites
+                        </label>
+                    </div>
+                </div>
+                <div className="form-group row align-bottom" style={{width:"100%"}}>
+                    <button type="button" className="btn btn-primary filterBtn"
+                            onClick={() => this.props.onFilterClick(this.state)}>Filter</button>
                 </div>
             </div>
         )

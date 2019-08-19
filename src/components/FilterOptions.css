@@ -5,6 +5,11 @@
     clear: both;
 }
 
+.checkbox > label {
+    color:#222222 !important;
+    font-size: 1.7em;
+}
+
 .checkbox .cr,
 .radio .cr {
     position: relative;
@@ -28,6 +33,7 @@
     line-height: 0;
     top: 50%;
     left: 20%;
+    color: dodgerblue;
 }
 
 .radio .cr .cr-icon {
@@ -41,18 +47,19 @@
 
 .checkbox label input[type="checkbox"] + .cr > .cr-icon,
 .radio label input[type="radio"] + .cr > .cr-icon {
-    transform: scale(3);
     opacity: 0;
-    transition: all .3s ease-in;
 }
 
 .checkbox label input[type="checkbox"]:checked + .cr > .cr-icon,
 .radio label input[type="radio"]:checked + .cr > .cr-icon {
-    transform: scale(1);
     opacity: 1;
 }
 
 .checkbox label input[type="checkbox"]:disabled + .cr,
 .radio label input[type="radio"]:disabled + .cr {
     opacity: .5;
+}
+
+.filterBtn {
+    width: 100%;
 }

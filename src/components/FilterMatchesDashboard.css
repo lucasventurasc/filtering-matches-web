@@ -37,7 +37,7 @@
 
 .matches {
     width: 70%;
-    border-left: 1px solid yellow;
+    border-left: 1px solid black;
     overflow-y: auto;
 }
 

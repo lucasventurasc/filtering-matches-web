@@ -1,4 +1,5 @@
 import UserMatched from "./UserMatched";
+import SelectedFilters from "./SelectedFilters";
 
 class MatchesFetcher {
 
@@ -8,10 +9,20 @@ class MatchesFetcher {
         this._url = url + "/api/v1/matches";
     }
 
-    fetchMatches(user: string): Promise<UserMatched[]> {
-        return fetch(this._url + "/" + user)
+    fetchMatches(user: string, filters?: SelectedFilters): Promise<UserMatched[]> {
+        let queryString = filters ? "?" + this.buildQueryString(filters) : '';
+        return fetch(this._url + "/" + user + queryString)
             .then(this.transformToUserMatchedArray)
     }
+
+    private buildQueryString(filters: SelectedFilters): string {
+        let queryString = '';
+        Object.keys(filters).forEach((key , index) => {
+            queryString = queryString.concat("&" + key + "=" + filters[key]);
+        });
+        return queryString.substr(1, queryString.length);
+    }
+
 
     private transformToUserMatchedArray(response): Promise<UserMatched[]> {
         return response.json().then(value => {
