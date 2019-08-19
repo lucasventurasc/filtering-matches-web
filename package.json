@@ -17,6 +17,7 @@
     "immutable": "^4.0.0-rc.12",
     "jquery": "^3.4.1",
     "node-fetch": "^2.6.0",
+    "object-fit-images": "^3.2.4",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "reactstrap": "^8.0.1"

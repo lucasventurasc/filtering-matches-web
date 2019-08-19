@@ -5,4 +5,5 @@ html, body {
 #application {
     height: 100%;
     font-family: roboto, Arial;
+    overflow-y: hidden;
 }

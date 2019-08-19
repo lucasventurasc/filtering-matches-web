@@ -5,7 +5,7 @@ class MatchesFetcher {
     private _url: string;
 
     constructor(url: string) {
-        this._url = url;
+        this._url = url + "/api/v1/matches";
     }
 
     fetchMatches(user: string): Promise<UserMatched[]> {

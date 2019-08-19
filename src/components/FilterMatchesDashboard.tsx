@@ -1,6 +1,6 @@
 import * as React from 'react'
 import './FilterMatchesDashboard.css'
-import {Card, Button, CardImg, CardTitle, CardText, CardDeck, CardSubtitle, CardBody} from 'reactstrap'
+import {Button, Card, CardBody, CardDeck, CardImg, CardSubtitle, CardText, CardTitle} from 'reactstrap'
 import MatchCard from "./MatchCard";
 import UserMatched from "../data/UserMatched";
 
@@ -10,6 +10,7 @@ interface FilterMatchesDashboardProps {
 
 interface FilterMatchesDashboardState {
 }
+
 
 class FilterMatchesDashboard extends React.Component<FilterMatchesDashboardProps, FilterMatchesDashboardState> {
 

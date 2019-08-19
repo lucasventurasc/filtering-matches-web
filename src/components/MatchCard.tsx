@@ -27,51 +27,42 @@ class MatchCard extends React.Component<MatchCardProps, MatchCardState> {
     }
 
     render() {
-        let compatibilityScoreColor: string = '#0D98BA';
-
-        if (this.props.compatibilityScore > 0.50 && this.props.compatibilityScore < 0.69) {
-            compatibilityScoreColor = '#FFAE42'
-        } else if (this.props.compatibilityScore > 0.69) {
-            compatibilityScoreColor = '#ADFF2F'
-        }
-
         return (
             <div className={"matchCard"}>
                 <Card>
-                    <CardImg className={"mainPhoto"} top width={"*"} height={"*"} src={this.props.mainPhoto} alt="Card image cap" />
+                    <CardImg className={"mainPhoto"}
+                             src={this.props.mainPhoto ? this.props.mainPhoto : 'assets/no-photo-available.jpg'}
+                             alt="Image could not be loaded" />
                     <CardBody>
                         <CardTitle>
                             <span className={"cardTitle"}>
                                 <span>
                                     {this.props.display_name}, {this.props.age}
                                 </span>
-                                <span>
+                                <span title={"Favourite"}>
                                     {!this.props.favourite ? '' : <span className={"rating-star full-star favourite"}/>}
                                 </span>
                             </span>
                         </CardTitle>
                         <CardSubtitle>
                             <span className={"cardSubtitle"}>
-                                <table style={{width: "100%"}}>
-                                    <tr>
-                                        <td>
-                                            <span style={{display:"flex", flexDirection:"column"}}>
-                                                <span>{this.props.job_title} at {this.props.cityName}</span>
-                                                <span>{this.props.height_in_cm}cm</span>
+                                <span style={{display:"flex", flexDirection:"column"}}>
+                                    <span>{this.props.job_title} at {this.props.cityName}</span>
+                                    <span>{this.props.height_in_cm}cm</span>
+
+                                    <span className={"cardIcons"}>
+                                        <span title={"Contacts exchanged"}>
+                                            <span className={"contactsExchangedIcon"}/>
+                                            <b>{this.props.contactsExchanged}</b>
+                                        </span>
+                                        <span title={"Compatibility score"}>
+                                            <span className={"compatibilityScoreIcon"}/>
+                                            <span>
+                                                <b>{this.props.compatibilityScore*100}%</b>
                                             </span>
-                                        </td>
-                                        <td align={"right"}>
-                                            <span style={{display:"flex", flexDirection:"column"}}>
-                                                <span>Compatibility:&nbsp;
-                                                    <span style={{color: compatibilityScoreColor}}>
-                                                        <b>{this.props.compatibilityScore*100}%</b>
-                                                    </span>
-                                                </span>
-                                                <span>Contacts exchanged:&nbsp;<b>{this.props.contactsExchanged}</b></span>
-                                            </span>
-                                        </td>
-                                    </tr>
-                                </table>
+                                        </span>
+                                    </span>
+                                </span>
                             </span>
                         </CardSubtitle>
                         <CardText>

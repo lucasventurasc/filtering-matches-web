@@ -1,6 +1,12 @@
 ﻿import React from 'react'
 import ReactDOM from 'react-dom'
-import FilterMatchesDashboard from "./components/FilterMatchesDashboard";
 import Application from "./components/Application"
+import objectFitImages from 'object-fit-images'
 
-ReactDOM.render(<Application/>, document.getElementById("root"));
+let filteringMatchesElement = document.getElementsByTagName('filtering-matches-application')[0];
+let serverUrl = filteringMatchesElement.attributes["serverurl"].value;
+
+ReactDOM.render(<Application serverUrl={serverUrl}/>, filteringMatchesElement);
+
+objectFitImages();
+
