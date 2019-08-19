@@ -10,15 +10,26 @@ class MatchesFetcher {
     }
 
     fetchMatches(user: string, filters?: SelectedFilters): Promise<UserMatched[]> {
-        let queryString = filters ? "?" + this.buildQueryString(filters) : '';
-        return fetch(this._url + "/" + user + queryString)
+        return fetch(this.buildUrl(user, filters))
             .then(this.transformToUserMatchedArray)
+    }
+
+    private buildUrl(user: string, filters: SelectedFilters) {
+        let queryString = '';
+        if (filters) {
+            let builtQueryString = this.buildQueryString(filters);
+            queryString = (builtQueryString ? "?" + builtQueryString : '');
+        }
+        return this._url + "/" + user + queryString;
     }
 
     private buildQueryString(filters: SelectedFilters): string {
         let queryString = '';
         Object.keys(filters).forEach((key , index) => {
-            queryString = queryString.concat("&" + key + "=" + filters[key]);
+            let value = filters[key];
+            if (value) {
+                queryString = queryString.concat("&" + key + "=" + value);
+            }
         });
         return queryString.substr(1, queryString.length);
     }

@@ -5,9 +5,9 @@
     clear: both;
 }
 
-.checkbox > label {
-    color:#222222 !important;
-    font-size: 1.7em;
+.label {
+    color:#252525 !important;
+    font-size: 15px;
 }
 
 .checkbox .cr,
@@ -62,4 +62,40 @@
 
 .filterBtn {
     width: 100%;
+}
+
+.input-range__slider {
+    background: dodgerblue !important;
+    border: 1px solid dodgerblue !important;
+}
+
+.input-range__track--active {
+    background: dodgerblue !important;
+}
+
+.input-range {
+    width: 90% !important;
+    margin-left: 15px;
+}
+
+.input-range__label {
+    color: #252525 !important;
+}
+
+.hide-min-max .input-range__label--min {
+    display:none;
+}
+
+.hide-min-max .input-range__label--max {
+    display: none;
+}
+
+.maximumDistance > input-range__label--min {
+    font-weight:bold;
+    font-size:9px;
+}
+
+.maximumDistance > input-range__label--max {
+    font-weight:bold;
+    font-size:9px;
 }

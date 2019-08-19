@@ -46,17 +46,75 @@ class MatcherFetcherTest {
             '&inContact=true' +
             '&favorited=true' ,{body: body, status: 200});
 
-        let filters = new SelectedFiltersFake();
+        let filters = new SelectedFilters();
         filters.hasPhoto = true;
         filters.inContact = true;
         filters.favorited = true;
 
         this.matchesFetcher.fetchMatches("tony", filters).then(result => {
-            expect(result).to.be.an.instanceOf(Array);
-            expect(result).to.have.lengthOf(1);
-            expect(result.pop()).is.deep.equal(this.getUserMatchedTestObject());
-            done();
+            this.verifyFetchMatchesReturnedUserMatchedTestObject(result, done);
         }).catch(done);
+    }
+
+    @test should_not_send_has_photo_in_contact_and_favourite_filters_when_they_unchecked(done) {
+        let body = "[" + JSON.stringify(this.getUserMatchedTestJson()) + "]";
+
+        fetchMock.mock( 'http://server.com/api/v1/matches/tony',{body: body, status: 200});
+
+        let filters = new SelectedFilters();
+        filters.hasPhoto = false;
+        filters.inContact = false;
+        filters.favorited = false;
+
+        this.matchesFetcher.fetchMatches("tony", filters).then(result => {
+            this.verifyFetchMatchesReturnedUserMatchedTestObject(result, done);
+        }).catch(done);
+    }
+
+    @test should_call_all_matches_and_pass_compatibility_and_age_and_height_filter(done) {
+        let body = "[" + JSON.stringify(this.getUserMatchedTestJson()) + "]";
+
+        fetchMock.mock( 'http://server.com/api/v1/matches/tony' +
+            '?compatibilityScoreRangeFrom=0.51' +
+            '&compatibilityScoreRangeTo=0.92' +
+            '&ageRangeFrom=18' +
+            '&ageRangeTo=25' +
+            '&heightRangeFrom=165' +
+            '&heightRangeTo=170'
+            ,{body: body, status: 200});
+
+        let filters = new SelectedFilters();
+        filters.compatibilityScoreRangeFrom = 0.51;
+        filters.compatibilityScoreRangeTo = 0.92;
+        filters.ageRangeFrom = 18;
+        filters.ageRangeTo = 25;
+        filters.heightRangeFrom = 165;
+        filters.heightRangeTo = 170;
+
+        this.matchesFetcher.fetchMatches("tony", filters).then(result => {
+            this.verifyFetchMatchesReturnedUserMatchedTestObject(result, done);
+        }).catch(done);
+    }
+
+    @test should_call_all_matches_and_pass_distance_in_km_filter(done) {
+        let body = "[" + JSON.stringify(this.getUserMatchedTestJson()) + "]";
+
+        fetchMock.mock( 'http://server.com/api/v1/matches/tony?distanceInKm=250'
+            ,{body: body, status: 200});
+
+        let filters = new SelectedFilters();
+        filters.distanceInKm = 250;
+
+        this.matchesFetcher.fetchMatches("tony", filters).then(result => {
+            this.verifyFetchMatchesReturnedUserMatchedTestObject(result, done);
+        }).catch(done);
+    }
+
+    private verifyFetchMatchesReturnedUserMatchedTestObject(result, done) {
+        expect(result).to.be.an.instanceOf(Array);
+        expect(result).to.have.lengthOf(1);
+        expect(result.pop()).is.deep.equal(this.getUserMatchedTestObject());
+        done();
     }
 
     getUserMatchedTestObject() {
@@ -90,11 +148,4 @@ class MatcherFetcherTest {
             "favourite": true
         };
     }
-}
-
-class SelectedFiltersFake implements SelectedFilters {
-    favorited: boolean;
-    hasPhoto: boolean;
-    inContact: boolean;
-
 }

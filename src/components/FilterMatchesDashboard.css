@@ -31,12 +31,13 @@
 }
 
 .filters {
-    width: 30%;
-    border-right: 1px solid #555;
+    min-width: 220px;
+    width:20%;
+    margin-right: 20px;
 }
 
 .matches {
-    width: 70%;
+    width: 80%;
     border-left: 1px solid black;
     overflow-y: auto;
 }
