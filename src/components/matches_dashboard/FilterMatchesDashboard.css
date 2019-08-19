@@ -39,7 +39,6 @@
 
 .matches {
     width: 75%;
-    border-left: 1px solid black;
     overflow-y: auto;
     height: 90vh;
 }
@@ -68,6 +67,20 @@
 @media screen and (max-height: 620px) {
     .mobile.filters {
         height:60vh;
+    }
+
+    .divFilterBtn {
+        margin-bottom: 120px !important;
+    }
+}
+
+@media screen and (max-height: 980px) {
+    .mobile.filters {
+        height:80vh;
+    }
+
+    .divFilterBtn {
+        margin-bottom: 120px !important;
     }
 }
 
