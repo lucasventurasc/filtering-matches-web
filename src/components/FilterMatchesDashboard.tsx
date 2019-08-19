@@ -3,6 +3,7 @@ import './FilterMatchesDashboard.css'
 import {Button, Card, CardBody, CardDeck, CardImg, CardSubtitle, CardText, CardTitle} from 'reactstrap'
 import MatchCard from "./MatchCard";
 import UserMatched from "../data/UserMatched";
+import FilterOptions from "./FilterOptions";
 
 interface FilterMatchesDashboardProps {
     usersMatched: Array<UserMatched>;
@@ -36,7 +37,7 @@ class FilterMatchesDashboard extends React.Component<FilterMatchesDashboardProps
         return (
             <div id={"dashboardContainer"}>
                 <div className={"filters"}>
-                    &nbsp;
+                    <FilterOptions/>
                 </div>
                 <div className={"matches"}>
                     <div className={"centeredDeck"}>
