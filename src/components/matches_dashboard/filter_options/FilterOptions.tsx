@@ -27,7 +27,7 @@ interface FilterOptionsProps {
 interface FilterOptionsState {
     hasPhoto: boolean,
     inContact: boolean,
-    favorited: boolean,
+    favourite: boolean,
     compatibilityScoreSlider: {
         min: number,
         max: number,
@@ -52,7 +52,7 @@ class FilterOptions extends React.Component<FilterOptionsProps, FilterOptionsSta
         this.state = {
             hasPhoto: false,
             inContact: false,
-            favorited: false,
+            favourite: false,
             compatibilityScoreSlider: {
                 min: COMPATIBILITY_SLIDER_MIN,
                 max: COMPATIBILITY_SLIDER_MAX,
@@ -166,9 +166,9 @@ class FilterOptions extends React.Component<FilterOptionsProps, FilterOptionsSta
                                 </span>
                             </td>
                             <td>
-                                <Toggle name={"favorited"}
+                                <Toggle name={"favourite"}
                                         icons={false}
-                                        checked={this.state.favorited}
+                                        checked={this.state.favourite}
                                         onChange={(event) => this.handleCheckboxChange(event)}/>
                             </td>
                         </tr>
@@ -296,7 +296,7 @@ class FilterOptions extends React.Component<FilterOptionsProps, FilterOptionsSta
         let selectedFilters = new SelectedFilters();
         selectedFilters.hasPhoto = state.hasPhoto;
         selectedFilters.inContact = state.inContact;
-        selectedFilters.favorited = state.favorited;
+        selectedFilters.favourite = state.favourite;
         selectedFilters.ageRangeFrom = state.ageSlider.min;
         selectedFilters.ageRangeTo = state.ageSlider.max;
         selectedFilters.heightRangeFrom = state.heightSlider.min;

@@ -47,7 +47,7 @@ table tbody td:nth-child(2) {
 }
 
 .input-range__slider {
-    transition: transform 0.1s ease-out, box-shadow 0.1s ease-out !important;
+    transition: transform 0.0s ease-out, box-shadow 0.0s ease-out !important;
 }
 
 .input-range__slider:active {
@@ -55,11 +55,11 @@ table tbody td:nth-child(2) {
 }
 
 .input-range__slider-container {
-transition: left 0.1s ease-out !important;
+transition: left 0.0s ease-out !important;
 }
 
 .input-range__track {
-    transition: left 0.1s ease-out, width 0.1s ease-out !important;
+    transition: left 0.0s ease-out, width 0.0s ease-out !important;
 }
 
 .slider {

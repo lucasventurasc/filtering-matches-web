@@ -23,15 +23,26 @@ class Application extends React.Component<ApplicationProps, ApplicationState> {
     }
 
     render() {
-        let loggedUser = "Caroline";
+        let loggedUserQueryParam = this.getParameterByName("loggedUser", window.location.href);
+        let loggedUser = loggedUserQueryParam ? loggedUserQueryParam : 'Katherine';
         return (
             <div id={"application"}>
                 <BrowserView>
                     <BrowserHeader loggedUser={loggedUser}/>
                 </BrowserView>
-                <FilterMatchesDashboard serverUrl={this.props.serverUrl} loggedUser={loggedUser}/>
+                <FilterMatchesDashboard serverUrl={this.props.serverUrl} loggedUser={loggedUser.toLocaleLowerCase()}/>
             </div>
         )
+    }
+
+    getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, '\\$&');
+        let regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
     }
 }
 

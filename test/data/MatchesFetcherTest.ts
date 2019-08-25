@@ -44,12 +44,12 @@ class MatcherFetcherTest {
         fetchMock.mock( 'http://server.com/api/v1/matches/tony' +
             '?hasPhoto=true' +
             '&inContact=true' +
-            '&favorited=true' ,{body: body, status: 200});
+            '&favourite=true' ,{body: body, status: 200});
 
         let filters = new SelectedFilters();
         filters.hasPhoto = true;
         filters.inContact = true;
-        filters.favorited = true;
+        filters.favourite = true;
 
         this.matchesFetcher.fetchMatches("tony", filters).then(result => {
             this.verifyFetchMatchesReturnedUserMatchedTestObject(result, done);
@@ -64,7 +64,7 @@ class MatcherFetcherTest {
         let filters = new SelectedFilters();
         filters.hasPhoto = false;
         filters.inContact = false;
-        filters.favorited = false;
+        filters.favourite = false;
 
         this.matchesFetcher.fetchMatches("tony", filters).then(result => {
             this.verifyFetchMatchesReturnedUserMatchedTestObject(result, done);

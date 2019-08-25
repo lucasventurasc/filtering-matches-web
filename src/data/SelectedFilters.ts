@@ -2,7 +2,7 @@ class SelectedFilters {
 
     hasPhoto: boolean;
     inContact: boolean;
-    favorited: boolean;
+    favourite: boolean;
     compatibilityScoreRangeFrom: number;
     compatibilityScoreRangeTo: number;
     ageRangeFrom: number;

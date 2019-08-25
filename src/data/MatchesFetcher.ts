@@ -34,7 +34,7 @@ class MatchesFetcher {
         return queryString.substr(1, queryString.length);
     }
 
-
+ge
     private transformToUserMatchedArray(response): Promise<UserMatched[]> {
         return response.json().then(value => {
             let matches: Array<UserMatched> = [];
