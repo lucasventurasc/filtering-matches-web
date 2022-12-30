@@ -41,7 +41,7 @@
     "copy-webpack-plugin": "^5.0.2",
     "css-loader": "^1.0.0",
     "fetch-mock": "^7.3.9",
-    "mocha": "^6.0.2",
+    "mocha": "^10.2.0",
     "mocha-typescript": "^1.1.17",
     "nyc": "^14.1.1",
     "source-map-support": "^0.5.11",
